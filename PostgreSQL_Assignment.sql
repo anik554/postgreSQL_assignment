@@ -18,10 +18,11 @@ CREATE TABLE sightings(
     sighting_id SERIAL PRIMARY KEY,
     ranger_id INT REFERENCES rangers(ranger_id) NOT NULL,
     species_id INT REFERENCES species(species_id) NOT NULL,
-    sighting_time DATE NOT NULL,
+    sighting_time TIMESTAMP NOT NULL,
     "location" VARCHAR(100) NOT NULL,
     notes VARCHAR(50)
 );
+
 SELECT * FROM sightings;
 
 INSERT INTO rangers(name,region) VALUES
@@ -81,4 +82,29 @@ $$
 $$;
 
 SELECT update_status(1800);
+
+--> Problem 8
+SELECT sighting_id, 
+    CASE 
+        WHEN CAST(sighting_time as TIME) < '11:59:59' THEN 'Morning'
+        WHEN CAST(sighting_time as TIME) >= '12:00:00' AND  CAST(sighting_time as TIME) <= '16:59:59' THEN 'Afternoon'
+        WHEN CAST(sighting_time as TIME) > '17:00:00' THEN 'Evening'
+    ELSE
+        'Normal'
+    END as time_of_day FROM sightings;
+
+--> Problem 9
+DELETE FROM rangers
+    WHERE NOT EXISTS(
+        SELECT 1
+        FROM sightings
+        WHERE sightings.ranger_id = rangers.ranger_id
+    );
+
+
+-- Q: What is PostgreSQL?
+-- A: PostgreSQL is powerful object-relational database..which is used in best stucture way to mmanage big data store.
+
+-- Q: What is the purpose of a database schema in PostgreSQL?
+-- A: 
 
