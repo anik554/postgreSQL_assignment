@@ -106,5 +106,18 @@ DELETE FROM rangers
 -- A: PostgreSQL is powerful object-relational database..which is used in best stucture way to mmanage big data store.
 
 -- Q: What is the purpose of a database schema in PostgreSQL?
--- A: 
+-- A: Database schema is a organizing databse objects and making the database more manageable.
+
+-- Q: Explain the Primary Key and Foreign Key concepts in PostgreSQL.
+-- A: Primary key means in the table find a row wise data easily. Primary key always be a unique number or mulitiple char,number,symble etc..
+
+-- Q: What is the difference between the VARCHAR and CHAR data types?
+-- A: CHAR and VARCHAR is a data type in database. CHAR store in database fix length data where as VARCHAR store depends on variable size.
+
+-- Q: Explain the purpose of the WHERE clause in a SELECT statement.
+-- A: Normaly SELECT used when detarmind the need of data on sigle or multiple table whare as WHERE used conditional specific table column of data.
+
+-- Q: What are the LIMIT and OFFSET clauses used for?
+-- A: Basically when filtered data on table then how many data show on result that time used LIMIT and OFFSET is number of next occurance data 
+      -- according to LIMIT number.
 
